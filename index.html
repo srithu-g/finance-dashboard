@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Finance Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="script.js" defer></script>
+</head>
+<body>
+
+    <!-- Authentication Page -->
+    <div id="auth-container">
+        <div class="auth-box">
+            <h2>Welcome to Finance Dashboard</h2>
+            <input type="email" id="auth-email" placeholder="Enter Email" required />
+            <input type="password" id="auth-password" placeholder="Enter Password" required />
+            <button id="login-btn">Login</button>
+            <button id="signup-btn">Sign Up</button>
+            <p id="auth-error" style="color: red; display: none"></p>
+        </div>
+    </div>
+
+    <!-- Dashboard -->
+    <div id="dashboard" style="display: none">
+        <header>
+            <h1 id="welcome-message">Hi, User!</h1>
+            <button id="toggle-chatbot-btn">Virtual Assistant</button>
+            <button id="logout-btn">Logout</button>
+        </header>
+
+        <div class="dashboard-container">
+            <!-- Account Balance -->
+            <div class="account-balance box">
+                <h2>Account Overview</h2>
+                <p>Balance: ₹<span id="current-balance">0.00</span></p>
+                <p>Savings: ₹<span id="savings-balance">0.00</span></p>
+                <p>Eligible Loan: ₹<span id="loan-amount">0.00</span></p>
+            </div>
+
+            <!-- Transactions -->
+            <div class="transactions box">
+                <h2>Recent Transactions</h2>
+                <ul id="transaction-list"></ul>
+            </div>
+        </div>
+
+        <!-- Update Finance -->
+        <div class="box">
+            <h2>Update Your Finances</h2>
+            <label>Income:</label>
+            <input type="number" id="income" placeholder="Enter income" />
+            <label>Savings:</label>
+            <input type="number" id="savings" placeholder="Enter savings amount" />
+            <button id="save-btn">Save</button>
+        </div>
+
+        <!-- Add Transactions -->
+        <div class="box">
+            <h2>Add Transactions</h2>
+            <label>Category:</label>
+            <select id="category">
+                <option value="Groceries">Groceries</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="Utilities">Utilities</option>
+                <option value="Rent">Rent</option>
+                <option value="Others">Others</option>
+            </select>
+            <label>Amount:</label>
+            <input type="number" id="amount" placeholder="Enter amount" />
+            <button id="add-transaction-btn">Add Transaction</button>
+        </div>
+
+        <!-- Financial Charts -->
+        <div class="chart-container">
+            <div class="box">
+                <h2>Income vs Expenses</h2>
+                <canvas id="incomeExpenditureChart"></canvas>
+            </div>
+            <div class="box">
+                <h2>Category-wise Spending</h2>
+                <canvas id="categoryChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chatbot (Hidden by Default) -->
+    <div id="chatbot" class="box" style="display: none;">
+        <div id="chat-header">
+            <h2>Virtual Assistant</h2>
+            <button id="close-chatbot-btn">X</button>
+        </div>
+        <div id="chat-body">
+            <p><strong>Bot:</strong> Hi! How can I assist you?</p>
+        </div>
+        <input type="text" id="chat-input" placeholder="Ask me anything..." />
+    </div>
+
+</body>
+</html>
